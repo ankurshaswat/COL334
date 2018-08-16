@@ -1,0 +1,94 @@
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10
+*** Adding switches:
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10
+*** Adding links:
+(10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h1, s1) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h2, s2) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h3, s3) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h4, s4) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h5, s5) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h6, s6) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h7, s7) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h8, s8) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5msdelay 2% loss) (h9, s9) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (h10, s10) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s1, s2) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s2, s3) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s3, s4) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s4, s5) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s5, s6) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s6, s7) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s7, s8) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s8, s9) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s9, s10) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (s10, s1)
+*** Configuring hosts
+h1 (cfs -1/100000us) h2 (cfs -1/100000us) h3 (cfs -1/100000us) h4 (cfs -1/100000us) h5 (cfs -1/100000us) h6 (cfs -1/100000us) h7 (cfs -1/100000us) h8 (cfs -1/100000us) h9 (cfs -1/100000us) h10 (cfs -1/100000us)
+*** Starting controller
+c0
+*** Starting 10 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 ...(10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5msdelay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss) (10.00Mbit 5ms delay 2% loss)
+Dumping host connections
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+h5 h5-eth0:s5-eth1
+h6 h6-eth0:s6-eth1
+h7 h7-eth0:s7-eth1
+h8 h8-eth0:s8-eth1
+h9 h9-eth0:s9-eth1
+h10 h10-eth0:s10-eth1
+*** Waiting for switches to connect
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10
+Testing network connectivity
+*** Ping: testing ping reachability
+h1 -> X X X X X X X X X
+h2 -> X h3 h4 h5 X h7 h8 h9 h10
+h3 -> X h2 h4 h5 h6 h7 X X h10
+h4 -> h1 X X h5 h6 h7 h8 h9 h10
+h5 -> h1 h2 h3 h4 X h7 h8 h9 h10
+h6 -> h1 X h3 h4 h5 h7 h8 h9 X
+h7 -> h1 h2 h3 X h5 h6 h8 h9 h10
+h8 -> h1 h2 X h4 h5 h6 h7 h9 h10
+h9 -> X X h3 h4 h5 h6 X h8 h10
+h10 -> h1 h2 h3 h4 h5 h6 h7 h8 h9
+*** Results: 26% dropped (66/90 received)
+Pinging h6 from h1
+PING 10.0.0.6 (10.0.0.6) 56(84) bytes of data.
+64 bytes from 10.0.0.6: icmp_seq=1 ttl=64 time=85.0 ms
+
+--- 10.0.0.6 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 85.033/85.033/85.033/0.000 ms
+
+Running iperf between h1 and h6
+*** Iperf: testing TCP bandwidth between h1 and h6
+*** Results: ['313 Kbits/sec', '462 Kbits/sec']
+['313 Kbits/sec', '462 Kbits/sec']
+Running iperf between h1 and h10
+*** Iperf: testing TCP bandwidth between h1 and h10
+*** Results: ['943 Kbits/sec', '1.05 Mbits/sec']
+['943 Kbits/sec', '1.05 Mbits/sec']
+Running ifconfig on h1
+h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.0.1  netmask 255.0.0.0  broadcast 10.255.255.255
+        inet6 fe80::ac4b:c0ff:fe0a:6252  prefixlen 64  scopeid 0x20<link>
+        ether ae:4b:c0:0a:62:52  txqueuelen 1000  (Ethernet)
+        RX packets 663  bytes 49844 (49.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 653  bytes 1158990 (1.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 9  bytes 1008 (1.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9  bytes 1008 (1.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+Running route on h1
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 h1-eth0
+
+Running traceroute from h1 to h10
+traceroute to 10.0.0.10 (10.0.0.10), 30 hops max, 60 byte packets
+ 1  * * 10.0.0.10 (10.0.0.10)  33.242 ms
+
+*** Stopping 1 controllers
+c0
+*** Stopping 20 links
+....................
+*** Stopping 10 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10
+*** Stopping 10 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10
+*** Done

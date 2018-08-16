@@ -1,0 +1,31 @@
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-08-16 15:00 IST
+Nmap scan report for 10.184.29.17
+Host is up (0.049s latency).
+Nmap scan report for 10.184.29.21
+Host is up (0.0060s latency).
+Nmap scan report for 10.184.29.53
+Host is up (0.010s latency).
+Nmap scan report for 10.184.29.76
+Host is up (0.057s latency).
+Nmap scan report for ankurshaswat-Strix-15-GL503GE (10.184.29.101)
+Host is up (0.00018s latency).
+Nmap scan report for 10.184.29.105
+Host is up (0.045s latency).
+Nmap scan report for 10.184.29.107
+Host is up (0.0048s latency).
+Nmap scan report for 10.184.29.122
+Host is up (0.085s latency).
+Nmap scan report for 10.184.29.166
+Host is up (0.067s latency).
+Nmap scan report for 10.184.29.171
+Host is up (0.0070s latency).
+Nmap scan report for 10.184.29.192
+Host is up (0.015s latency).
+Nmap scan report for 10.184.29.194
+Host is up (0.0053s latency).
+Nmap scan report for 10.184.29.205
+Host is up (0.0076s latency).
+Nmap scan report for 10.184.29.230
+Host is up (0.0089s latency).
+Nmap done: 256 IP addresses (14 hosts up) scanned in 5.12 seconds

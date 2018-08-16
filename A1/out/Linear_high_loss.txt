@@ -1,0 +1,47 @@
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10
+*** Adding switches:
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10
+*** Adding links:
+(10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h1, s1) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h2, s2) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h3, s3) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h4, s4) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h5, s5) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h6, s6) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h7, s7) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h8, s8) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5msdelay 5% loss) (h9, s9) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (h10, s10) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s1, s2) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s2, s3) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s3, s4) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s4, s5) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s5, s6) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s6, s7) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s7, s8) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s8, s9) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (s9, s10)
+*** Configuring hosts
+h1 (cfs -1/100000us) h2 (cfs -1/100000us) h3 (cfs -1/100000us) h4 (cfs -1/100000us) h5 (cfs -1/100000us) h6 (cfs -1/100000us) h7 (cfs -1/100000us) h8 (cfs -1/100000us) h9 (cfs -1/100000us) h10 (cfs -1/100000us)
+*** Starting controller
+c0
+*** Starting 10 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 ...(10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5msdelay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss) (10.00Mbit 5ms delay 5% loss)
+Dumping host connections
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+h5 h5-eth0:s5-eth1
+h6 h6-eth0:s6-eth1
+h7 h7-eth0:s7-eth1
+h8 h8-eth0:s8-eth1
+h9 h9-eth0:s9-eth1
+h10 h10-eth0:s10-eth1
+Testing network connectivity
+*** Ping: testing ping reachability
+h1 -> X X h4 h5 h6 h7 X X X
+h2 -> X h3 X h5 X X h8 X X
+h3 -> X h2 h4 h5 h6 h7 X X h10
+h4 -> h1 h2 X h5 h6 h7 h8 X X
+h5 -> h1 X h3 h4 h6 X h8 X X
+h6 -> X X X X h5 h7 X X X
+h7 -> X h2 h3 h4 h5 h6 X h9 h10
+h8 -> h1 X X X h5 h6 h7 h9 X
+h9 -> X X X X h5 X h7 X h10
+h10 -> X h2 X X h5 h6 X X h9
+*** Results: 50% dropped (45/90 received)
+Pinging h6 from h1
+PING 10.0.0.6 (10.0.0.6) 56(84) bytes of data.
+
+--- 10.0.0.6 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+
+Running iperf between h1 and h6
+*** Iperf: testing TCP bandwidth between h1 and h6
