@@ -1,0 +1,93 @@
+*** Creating network
+*** Adding controller
+Connecting to remote controller at 127.0.0.1:6653
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10
+*** Adding switches:
+s1
+*** Adding links:
+(10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h1, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h2, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h3, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h4, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h5, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h6, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h7, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h8, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8msdelay 2% loss) (h9, s1) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (h10, s1)
+*** Configuring hosts
+h1 (cfs -1/100000us) h2 (cfs -1/100000us) h3 (cfs -1/100000us) h4 (cfs -1/100000us) h5 (cfs -1/100000us) h6 (cfs -1/100000us) h7 (cfs -1/100000us) h8 (cfs -1/100000us) h9 (cfs -1/100000us) h10 (cfs -1/100000us)
+*** Starting controller
+c0
+*** Starting 1 switches
+s1 ...(10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss) (10.00Mbit 8ms delay 2% loss)
+Dumping host connections
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s1-eth2
+h3 h3-eth0:s1-eth3
+h4 h4-eth0:s1-eth4
+h5 h5-eth0:s1-eth5
+h6 h6-eth0:s1-eth6
+h7 h7-eth0:s1-eth7
+h8 h8-eth0:s1-eth8
+h9 h9-eth0:s1-eth9
+h10 h10-eth0:s1-eth10
+Testing network connectivity
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 h6 h7 X h9 h10
+h2 -> h1 h3 X X h6 h7 h8 h9 h10
+h3 -> h1 h2 h4 h5 h6 h7 h8 h9 h10
+h4 -> h1 h2 h3 h5 h6 h7 h8 X h10
+h5 -> h1 h2 h3 h4 h6 h7 h8 h9 X
+h6 -> h1 h2 h3 h4 h5 h7 h8 h9 X
+h7 -> h1 h2 h3 h4 h5 X h8 h9 h10
+h8 -> h1 h2 h3 h4 h5 h6 h7 h9 h10
+h9 -> X h2 X h4 h5 h6 h7 h8 h10
+h10 -> h1 h2 h3 h4 h5 h6 h7 X h9
+*** Results: 11% dropped (80/90 received)
+Pinging h6 from h1
+PING 10.0.0.6 (10.0.0.6) 56(84) bytes of data.
+64 bytes from 10.0.0.6: icmp_seq=1 ttl=64 time=34.5 ms
+
+--- 10.0.0.6 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 34.500/34.500/34.500/0.000 ms
+
+Running iperf between h1 and h6
+*** Iperf: testing TCP bandwidth between h1 and h6
+*** Results: ['2.16 Mbits/sec', '2.21 Mbits/sec']
+['2.16 Mbits/sec', '2.21 Mbits/sec']
+Running iperf between h1 and h10
+*** Iperf: testing TCP bandwidth between h1 and h10
+*** Results: ['2.47 Mbits/sec', '2.80 Mbits/sec']
+['2.47 Mbits/sec', '2.80 Mbits/sec']
+Running ifconfig on h1
+h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.0.1  netmask 255.0.0.0  broadcast 10.255.255.255
+        inet6 fe80::84a0:67ff:feb0:fa31  prefixlen 64  scopeid 0x20<link>
+        ether 86:a0:67:b0:fa:31  txqueuelen 1000  (Ethernet)
+        RX packets 1303  bytes 91896 (91.8 KB)
+        RX errors 0  dropped 17  overruns 0  frame 0
+        TX packets 1369  bytes 3442426 (3.4 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+Running route on h1
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 h1-eth0
+
+Running traceroute from h1 to h10
+traceroute to 10.0.0.10 (10.0.0.10), 30 hops max, 60 byte packets
+ 1  10.0.0.10 (10.0.0.10)  34.582 ms *  34.625 ms
+
+*** Stopping 1 controllers
+c0
+*** Stopping 10 links
+..........
+*** Stopping 1 switches
+s1
+*** Stopping 10 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10
+*** Done
